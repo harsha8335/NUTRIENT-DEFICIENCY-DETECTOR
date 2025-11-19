@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>iOS Gradient UI – Purple Pink Theme (5 Column Grid)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(145deg, #a18cd1, #fbc2eb);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(20px);
+      padding: 40px 40px 60px;
+      border-radius: 28px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+      animation: fadeIn 0.7s ease-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(25px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      text-align: center;
+      font-weight: 700;
+      font-size: 36px;
+      background: linear-gradient(120deg, #8e64d8, #ff9ce6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    .subtext {
+      text-align: center;
+      color: #5c5c62;
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .guidance {
+      text-align: center;
+      font-size: 15px;
+      color: #4b4b4b;
+      margin-bottom: 30px;
+      background: rgba(255,255,255,0.6);
+      padding: 15px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #3a3a3a;
+    }
+
+    select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid #dcdce0;
+      font-size: 14px;
+      background: #faf7fc;
+      transition: 0.25s;
+    }
+
+    select:focus {
+      border-color: #c084fc;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(192,132,252,0.3);
+      outline: none;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 40px;
+      padding: 16px;
+      font-size: 19px;
+      font-weight: 700;
+      border: none;
+      border-radius: 16px;
+      cursor: pointer;
+      background: linear-gradient(135deg, #c084fc, #e879f9);
+      color: white;
+      box-shadow: 0 8px 26px rgba(192,132,252,0.45);
+      transition: 0.25s ease;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(192,132,252,0.55);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <h1>Nutrient Deficiency Detector</h1>
+
+    <div class="subtext">AI That Cares About Your Health.</div>
+
+    <div class="guidance">
+      Select the symptoms and lifestyle details below.  
+      This helps the AI analyze your nutritional profile more accurately.
+    </div>
+
+    <form action="/predict" method="POST">
+      <div class="grid">
+
+        <div><label>Fatigue</label><select name="fatigue"><option>0</option><option>1</option></select></div>
+        <div><label>Hair Loss</label><select name="hair_loss"><option>0</option><option>1</option></select></div>
+        <div><label>Pale Skin</label><select name="pale_skin"><option>0</option><option>1</option></select></div>
+        <div><label>Dizziness</label><select name="dizziness"><option>0</option><option>1</option></select></div>
+        <div><label>Weakness</label><select name="weakness"><option>0</option><option>1</option></select></div>
+
+        <div><label>Bone Pain</label><select name="bone_pain"><option>0</option><option>1</option></select></div>
+        <div><label>Muscle Cramps</label><select name="muscle_cramps"><option>0</option><option>1</option></select></div>
+        <div><label>Tingling</label><select name="tingling"><option>0</option><option>1</option></select></div>
+        <div><label>Slow Healing</label><select name="slow_healing"><option>0</option><option>1</option></select></div>
+        <div><label>Memory Issues</label><select name="memory_issues"><option>0</option><option>1</option></select></div>
+
+        <div><label>Low Immunity</label><select name="low_immunity"><option>0</option><option>1</option></select></div>
+        <div><label>Dry Skin</label><select name="dry_skin"><option>0</option><option>1</option></select></div>
+        <div><label>Brittle Nails</label><select name="brittle_nails"><option>0</option><option>1</option></select></div>
+        <div><label>Loss of Appetite</label><select name="loss_appetite"><option>0</option><option>1</option></select></div>
+        <div><label>Diet Type</label><select name="diet_type"><option>veg</option><option>non-veg</option><option>vegan</option></select></div>
+
+        <div><label>Protein Intake</label><select name="protein_sources_daily"><option>low</option><option>medium</option><option>high</option></select></div>
+        <div><label>Milk Daily</label><select name="milk_daily"><option>0</option><option>1</option></select></div>
+        <div><label>Fruits Daily</label><select name="fruits_daily"><option>0</option><option>1</option></select></div>
+        <div><label>Veggies Daily</label><select name="veggies_daily"><option>0</option><option>1</option></select></div>
+
+        <!-- FIXED SUNLIGHT FIELD -->
+        <div>
+          <label>Sunlight Exposure</label>
+          <select name="sunlight">
+            <option>0</option>
+            <option>1</option>
+          </select>
+        </div>
+
+        <div><label>Junk Food Intake</label><select name="junk_food"><option>low</option><option>medium</option><option>high</option></select></div>
+        <div><label>Sleep Hours</label><select name="sleep_hours"><option>5</option><option>6</option><option>7</option><option>8+</option></select></div>
+        <div><label>Stress Level</label><select name="stress"><option>low</option><option>medium</option><option>high</option></select></div>
+        <div><label>Activity Level</label><select name="activity"><option>low</option><option>medium</option><option>high</option></select></div>
+        <div><label>Digestive Issues</label><select name="digestive_issues"><option>none</option><option>acidity</option><option>gas</option><option>constipation</option></select></div>
+
+        <div><label>Supplements</label><select name="supplements"><option>0</option><option>1</option></select></div>
+        <div><label>Medical Conditions</label><select name="medical_conditions"><option>none</option><option>thyroid</option><option>diabetes</option></select></div>
+
+      </div>
+
+      <button type="submit">Predict Deficiency</button>
+    </form>
+
+    <div style="text-align:center;margin-top:25px;font-size:15px;color:#4b4b4b;font-weight:600;">
+      Designed &amp; Developed by Harsha
+    </div>
+
+  </div>
+</body>
+</html>

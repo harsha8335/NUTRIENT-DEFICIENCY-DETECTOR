@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nutrient Deficiency Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            background: linear-gradient(145deg, #a18cd1, #fbc2eb);
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(25px);
+            padding: 40px 50px 60px;
+            border-radius: 28px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+            animation: fadeIn 0.7s ease-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(25px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 8px;
+            font-weight: 700;
+            background: linear-gradient(120deg, #8e64d8, #ff9ce6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtext {
+            text-align: center;
+            color: #555;
+            margin-bottom: 35px;
+            font-size: 17px;
+        }
+
+        .rank-box {
+            background: white;
+            padding: 18px 25px;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: 600;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+        }
+
+        .food-section {
+            margin-top: 35px;
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
+
+        ul {
+            font-size: 18px;
+            line-height: 1.9;
+        }
+
+        ul li b {
+            color: #7b4fff;
+        }
+
+        /* Back button */
+        .back-container {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .back-btn {
+            background: linear-gradient(135deg, #c084fc, #e879f9);
+            padding: 14px 32px;
+            border-radius: 14px;
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(192,132,252,0.45);
+            transition: 0.25s;
+            border: none;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(192,132,252,0.55);
+        }
+
+        /* Remove unwanted outlines / black line */
+        a:focus, button:focus {
+            outline: none !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    
+<div class="container">
+
+    <h1>Your Health Report</h1>
+    <div class="subtext">Top 3 nutrient deficiency rankings</div>
+
+    {% for name, prob in top3 %}
+    <div class="rank-box">
+        <span>{{ loop.index }}. {{ name }}</span>
+        <span>{{ prob }}%</span>
+    </div>
+    {% endfor %}
+
+    <div class="food-section">
+        <h2 style="margin-top:0;">Foods for All Deficiencies</h2>
+        
+        <ul>
+            <li><b>IRON:</b> Spinach, Lentils, Pumpkin seeds, Tofu, Broccoli</li>
+            <li><b>B12:</b> Eggs, Milk, Yogurt, Fish, Fortified cereals</li>
+            <li><b>CALCIUM:</b> Milk, Cheese, Yogurt, Almonds, Broccoli</li>
+            <li><b>VITAMIN D:</b> Mushrooms, Salmon, Egg yolk, Fortified milk, Cod liver oil</li>
+            <li><b>ZINC:</b> Chickpeas, Cashews, Pumpkin seeds, Oats, Yogurt</li>
+            <li><b>PROTEIN:</b> Paneer, Eggs, Chicken, Lentils, Greek yogurt</li>
+        </ul>
+    </div>
+
+    <div class="back-container">
+        <a href="/" class="back-btn">← Back to Home</a>
+    </div>
+
+</div>
+
+</body>
+</html>
